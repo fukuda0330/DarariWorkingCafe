@@ -431,7 +431,7 @@
       <span id="MiniTitle" @click="PageTransition(pageTop)" style="cursor: pointer;">DWCafe</span>
     </div>
     <!-- <header id="header"></header> -->
-    <div id="cafeIcon" @click="JunpPageTop()"></div>
+    <div id="cafeIcon" v-scroll-to="'#app'"></div>
     <div id="LinkNaviBox">
       <div id="MemberNavi" class="LinkNavi Label1Color" @click="PageTransition(pageMember)">Member</div>
       <div id="ConceptNavi" class="LinkNavi Label2Color" @click="PageTransition(pageConcept)">Concept</div>
@@ -493,9 +493,12 @@
 
 <script>
   // テンプレートファイルを読み込む
-  //import setImmediate from '../node_modules/setimmediate'
+  import Vue from 'vue'
+  import VueScrollTo from 'vue-scrollto'
   import Member from './components/Member.vue'
   import Concept from './components/Concept.vue'
+
+  Vue.use(VueScrollTo)
 
   export default {
     name: 'app',
@@ -510,13 +513,6 @@
 
         // 掲示板テキスト
         boardText: "",
-        
-        // Firebase
-        firebaseConfig: null,
-        database: null,
-
-        // ロードイベント用
-        loadStyleClass: "",
       }
     }
     ,components: {
@@ -526,9 +522,6 @@
     ,methods: {
       PageTransition(page) {
         this.currentPage = page;
-      },
-      JunpPageTop() {
-        document.body.scrollTop = 0;
       },
 // #region [メール送信メソッドコメントアウト]
       //SendMail() {
