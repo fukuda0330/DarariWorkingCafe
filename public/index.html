@@ -1,18 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>darari</title>
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>darari</title><link href=/css/app.ae9ba104.css rel=preload as=style><link href=/js/app.845c2c80.js rel=preload as=script><link href=/js/chunk-vendors.1cc2a64c.js rel=preload as=script><link href=/css/app.ae9ba104.css rel=stylesheet></head><body onload=SettingBoard();><noscript><strong>We're sorry but darari doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.1cc2a64c.js></script><script src=/js/app.845c2c80.js></script></body><script src=https://www.gstatic.com/firebasejs/3.5.0/firebase.js></script><script>let database_f;
+function SettingBoard() {
+  // Firebase オプション設定
+  let firebaseConfig = {
+      apiKey: "AIzaSyAi7ax0Bf6LDk3zIoHa4VtUy3z2SDo4zMA",
+      authDomain: "none-78247.firebaseapp.com",
+      databaseURL: "https://none-78247.firebaseio.com",
+      storageBucket: "",
+      messagingSenderId: "988797258258"
+  };
 
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but darari doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
+  // firebase 初期化
+  firebase.initializeApp(firebaseConfig);
+
+  // DB処理格納
+  database_f = firebase.database();
+
+  // 掲示板内容を画面へ反映する
+  RefBoardText();
+}
+
+function RefBoardText() {
+  let message;
+  let Board = document.getElementById("Board");
+  database_f.ref("nones-messages").on("value", (messages) => {
+    Board.innerHTML = "";
+    messagesVal = messages.val();
+    Object.keys(messagesVal).forEach((msgID) => {
+      if (msgID != 0) {
+        Board.innerHTML += 
+          messagesVal[msgID].message
+          .replace("<", "&lt;")
+          .replace(">", "&gt;") + "<br>"
+          + messagesVal[msgID].time + "<br><br>";
+      }
+    });
+
+    // Board.innerHTML += "<br><br><br>";
+
+    Board.scrollTop = Board.scrollHeight;
+  });
+}
+
+function SendBoardText() {
+  let boardInput = document.getElementById("BoardInput");
+  let messageID = GetMessageID();
+
+  if (boardInput.value.trim().length == 0)
+    return;
+
+  database_f.ref("nones-messages/" + messageID).set({
+    message: boardInput.value,
+    time: GetDateTime(new Date()),
+  });
+
+  boardInput.value = "";
+}
+
+function GetDateTime(date, addYear = 0, addMonth = 0, addDay = 0) {
+    /*
+        現在日時を取得
+    */
+    
+    // 年月日時分秒を取得
+    let year = date.getFullYear() + addYear;
+    let month = (date.getMonth() + 1) + addMonth; // 仕様を調べたところ、実際の値より一つ少ない数になる
+    let day = date.getDate() + addDay;
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let second = date.getSeconds();
+    
+    // 現在日時作成
+    let nowDateTime = year + '/' + month + '/' + day + ' ' + hour + ':' + minutes + ':' + second;
+    
+    return nowDateTime;
+}
+
+function GetMessageID() {
+    // 日時から一意のキーを取得
+    let registMessageID = Date.parse(GetDateTime(new Date()));
+    return registMessageID;
+};</script></html>
