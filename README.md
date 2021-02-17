@@ -79,3 +79,19 @@
 　> npm list                     効果：パッケージを一覧表示
 
 
+
+
+
+【開発手順】
+サーバー起動：npm run serve　条件：package.jsonのあるフォルダにて実行
+※C:\Users\Owner\Documents\11_プログラム作成\darari(開発環境)
+
+・・・開発作業・・・
+
+ビルド：npm run build　条件：package.jsonのあるフォルダにて実行
+※C:\Users\Owner\Documents\11_プログラム作成\darari(開発環境)
+
+デプロイ：firebase deploy　条件：firebase.jsonのあるフォルダにて実行
+※C:\Users\Owner\Documents\11_プログラム作成\DarariWorkingTalkCafe開発フォルダ\DarariFirebase(デプロイ用)
+※うまくいかない場合は、firebase logoutを実行した後に、firebase loginを実行する
+
