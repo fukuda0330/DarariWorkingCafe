@@ -8,14 +8,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/darari.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase.js"></script>
 
     <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="./js/XXXXX.js"></script>
+    <script type="text/javascript" src="./js/XXX.js"></script>
+    <script type="text/javascript" src="./js/XXXXXXXXXXXXXXXX.js"></script>
+    <script type="text/javascript" src="./js/XX.js"></script>
+    <script type="text/javascript" src="./js/X.js"></script>
+    <script type="text/javascript" src="./js/darari.js"></script>
   </head>
   <body>
     <div class="container-fluid">
       <div class="alert alert-success text-center font-weight-bold mt-3" role="alert" style="font-size:4rem;">
         DARARI WORKING TALK CAFE
+      </div>
+
+      <div class="alert alert-light mt-3" role="alert">
+        総訪問してくれた数：[ <span id="visitCount"><span id="visitCountDot_1" class="visitCountDot">■</span><span id="visitCountDot_2" class="visitCountDot">■</span><span id="visitCountDot_3" class="visitCountDot">■</span></span> ]名様
       </div>
 
       <div class="accordion mt-3" id="accordionExample">
@@ -49,7 +63,7 @@
           Darari Working Talk Cafeのホームページをリリースしました
         </div>
       </div>
-      <a href="https://dararito.slack.com/app_redirect?channel=general" target="_blank">
+      <a href="https://dararito.slack.com/app_redirect?channel=%E3%81%BF%E3%82%93%E3%81%AA%E3%81%B8%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B" target="_blank">
         <button type="button" class="btn btn-success mt-3">コミュニティチャットへ</button>
       </a><br>
       <a href="https://join.slack.com/t/dararito/shared_invite/zt-87ypyykn-JvQProP6IJEMho7T8T3bBg" target="_blank">
@@ -101,51 +115,275 @@
         </div>
       </div>
 
-      <div class="card mt-3" style="width: 12rem; display: inline-block;">
-        <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="./img/jangom2ok.jpg">
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/jangom2ok.jpg">
         <div class="card-body">
           <p class="card-text">
-            jangom2ok
+            jangom2ok<br>
+            &nbsp;
           </p>
         </div>
       </div>
       
-      <div class="card mt-3" style="width: 12rem; display: inline-block;">
-        <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="./img/Shinji.jpg">
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Shinji.jpg">
         <div class="card-body">
           <p class="card-text">
-            Shinji&nbsp;&nbsp;
+            Shinji<br>
             <a href="https://twitter.com/shinji_hf" class="card-link" target="_blank"><i class="fa fa-twitter-square"></i></a>
           </p>
         </div>
       </div>
 
-      <div class="card mt-3" style="width: 12rem; display: inline-block;">
-        <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="./img/takahashi.png">
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/takahashi.png">
         <div class="card-body">
           <p class="card-text">
-            takahashi
+            takahashi<br>
+            &nbsp;
           </p>
         </div>
       </div>
 
-      <div class="card mt-3" style="width: 12rem; display: inline-block;">
-        <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="./img/yuki.jpg">
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
         <div class="card-body">
           <p class="card-text">
-            yuki
+            ごん<br>
+            &nbsp;
           </p>
         </div>
       </div>
 
-      <div class="card mt-3" style="width: 12rem; display: inline-block;">
-        <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="./img/kosuke.png">
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/yuki.jpg">
         <div class="card-body">
           <p class="card-text">
-            Kosuke&nbsp;&nbsp;
+            yuki<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/TAKA.png">
+        <div class="card-body">
+          <p class="card-text">
+            TAKA<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            mon/yuki<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/aym.jpg">
+        <div class="card-body">
+          <p class="card-text">
+            aym<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Naruchi.png">
+        <div class="card-body">
+          <p class="card-text">
+            なるち<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            ｿﾙﾃｨｰﾗｲﾁ<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            ひろ<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Sido.png">
+        <div class="card-body">
+          <p class="card-text">
+            しど<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            Kei<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/KEN.png">
+        <div class="card-body">
+          <p class="card-text">
+            KEN<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            kerry<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            Masaki<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Ogiken.png">
+        <div class="card-body">
+          <p class="card-text">
+            Ogiken<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            Yuji<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Ando.png">
+        <div class="card-body">
+          <p class="card-text">
+            あんどお<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Uruma.png">
+        <div class="card-body">
+          <p class="card-text">
+            うるま<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            かなみつ<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            たかみ<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Habu.png">
+        <div class="card-body">
+          <p class="card-text">
+            はぶ<br>
+            <a href="https://www.youtube.com/channel/UCp17pDJzl6txksh3_bX46XA" target="_new"><i class="fa fa-youtube-square"></i></a>
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/Hideyamaru.png">
+        <div class="card-body">
+          <p class="card-text">
+            ひでやまる<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            まる<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/none.png">
+        <div class="card-body">
+          <p class="card-text">
+            山本<br>
+            &nbsp;
+          </p>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/kosuke.png">
+        <div class="card-body">
+          <p class="card-text">
+            Kosuke<br>
             <a href="https://twitter.com/kosuke0330" target="_new"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
             <a href="https://www.facebook.com/profile.php?id=100011605114690" target="_new"><i class="fa fa-facebook-square"></i></a>&nbsp;&nbsp;
-            <a href="https://www.instagram.com/f_k0330/" target="_new"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.instagram.com/f_k0330/" target="_new"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;
+            <a href="https://yururito.gradation.jp/pgmemo/index.html" target="_new"><i class="fa fa-home"></i></a>
           </p>
         </div>
       </div>
