@@ -108,6 +108,10 @@ function AddVisitCount() {
             ref.indexOf("localhost") == -1
           )) &&
         !reloaded) {
+
+      // 開発環境の場合は、以降の処理を行わない
+      if (window.location.hostname.indexOf("localhost") !== -1)
+        return;
       
       // 訪問数カウントアップ
       database.ref("DarariVisitCount").set(parseInt($("#visitCount").text()) + 1);
