@@ -16,6 +16,11 @@
   font-size: 130%;
 }
 
+#meyasu-box {
+  height: 500px;
+  overflow-y: scroll;
+}
+
 @media (min-width: 576px) {
   .profile-card {
     width: 12rem;

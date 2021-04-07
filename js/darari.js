@@ -34,6 +34,12 @@ $(async function() {
   
   // 訪問カウントアップ
   AddVisitCount();
+
+  // 目安箱メッセージ表示
+  ShowMeyasuMessages();
+
+  // 目安箱投函イベント
+  EventPostingText();
 });
 
 // 初期化処理
@@ -160,4 +166,53 @@ function HiddenVisitCountDot() {
   $("#visitCountDot_1").fadeOut(100);
   $("#visitCountDot_2").fadeOut(100);
   $("#visitCountDot_3").fadeOut(100);
+}
+
+// 目安箱投函メッセージを表示
+function ShowMeyasuMessages() {
+  database.ref("meyasu-messages").on("value", function(objMeyasuMessages) {
+    
+    $("#meyasu-box").html("");
+
+    let meyasuMessages = objMeyasuMessages.val();
+    let showMessage = "";
+    Object.keys(meyasuMessages).reverse().forEach(function(messageId) {
+      if (messageId <= 0) {
+        return;
+      }
+
+      showMessage = meyasuMessages[messageId].message + "&nbsp;&nbsp;" + meyasuMessages[messageId].time;
+      $("#meyasu-box").html($("#meyasu-box").html() + Escape(showMessage) + "<br>");
+    });
+  });
+}
+
+// 文字列をエスケープ（XSS対策）
+function Escape(text) {
+  return text.replace(/</gm, "&lt;").replace(/>/gm, "&gt;");
+}
+
+// 投函イベント
+function EventPostingText() {
+  $("#posting-button").on("click", function() {
+    let postingText = $("#posting-text").val();
+    
+    if (!Isset(postingText)) {
+      return;
+    }
+    
+    let registTime = moment().format("YYYY/MM/DD HH:mm:ss");
+    let messageId = GetMessageID(registTime);
+    database.ref("meyasu-messages/" + messageId).set({
+      message: postingText,
+      time: registTime,
+    });
+
+    $("#posting-text").val("");
+  });
+}
+
+// 目安箱メッセージ識別子取得
+function GetMessageID(dateTime) {
+  return Date.parse(dateTime);
 }

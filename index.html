@@ -14,6 +14,7 @@
 
     <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/Moment.min.js"></script>
 
     <script type="text/javascript" src="./js/XXXXX.js"></script>
     <script type="text/javascript" src="./js/XXX.js"></script>
@@ -23,10 +24,12 @@
     <script type="text/javascript" src="./js/darari.js"></script>
   </head>
   <body>
+    <img src="./img/DarariTop.png" class="img-fluid w-100 shadow" alt="DarariWorkingTalkCafe_banner">
+    <!-- <img src="./img/DarariTopSelf.png" class="img-fluid w-100 shadow" alt="DarariWorkingTalkCafe_banner"> -->
     <div class="container-fluid">
-      <div class="alert alert-success text-center font-weight-bold mt-3" role="alert" style="font-size:4rem;">
+      <!-- <div class="alert alert-success text-center font-weight-bold mt-3" role="alert" style="font-size:4rem;">
         DARARI WORKING TALK CAFE
-      </div>
+      </div> -->
 
       <div class="alert alert-light mt-3" role="alert">
         総訪問してくれた数：[ <span id="visitCount"><span id="visitCountDot_1" class="visitCountDot">■</span><span id="visitCountDot_2" class="visitCountDot">■</span><span id="visitCountDot_3" class="visitCountDot">■</span></span> ]名様
@@ -51,6 +54,14 @@
       <div class="alert alert-light mt-3" role="alert">
         <span class="h2">お知らせ</span>
         <div class="alert alert-light mt-3" role="alert">
+          2021年4月8日<br>
+          トップバナーを刷新しました
+        </div>
+        <div class="alert alert-light mt-3" role="alert">
+          2021年3月27日<br>
+          何でも投函できる目安箱を設置致しました
+        </div>
+        <div class="alert alert-light mt-3" role="alert">
           2021年2月13日<br>
           セルフマネジメントアプリ開発プロジェクトを開始しました
         </div>
@@ -69,6 +80,17 @@
       <a href="https://join.slack.com/t/dararito/shared_invite/zt-87ypyykn-JvQProP6IJEMho7T8T3bBg" target="_blank">
         <button type="button" class="btn btn-warning mt-3">コミュニティチャット参加登録</button>
       </a>
+
+      <div class="alert alert-light mt-5" role="alert">
+        <h2>目安箱</h2>
+      </div>
+      <div id="meyasu-box" class="alert alert-primary" role="alert"></div>
+      <form>
+        <div class="form-group">
+          <input id="posting-text" type="text" class="form-control" placeholder="投稿内容">
+        </div>
+        <button id="posting-button" type="button" class="btn btn-primary">投函</button>
+      </form>
 
       <div class="card mt-5 border border-success" style="width:100%;">
         <div class="card-body">
@@ -112,6 +134,19 @@
           </p>
           <a href="https://www.php.net/manual/ja/intro-whatis.php" class="card-link" target="_blank">PHP</a>
           <a href="https://laravel.com/" class="card-link" target="_blank">Laravel</a>
+        </div>
+      </div>
+
+      <div class="card mt-3 profile-card" style="display: inline-block;">
+        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/kosuke.png">
+        <div class="card-body">
+          <p class="card-text">
+            Kosuke<br>
+            <a href="https://twitter.com/kosuke0330" target="_new"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
+            <a href="https://www.facebook.com/profile.php?id=100011605114690" target="_new"><i class="fa fa-facebook-square"></i></a>&nbsp;&nbsp;
+            <a href="https://www.instagram.com/f_k0330/" target="_new"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;
+            <a href="https://yururito.gradation.jp/pgmemo/index.html" target="_new"><i class="fa fa-home"></i></a>
+          </p>
         </div>
       </div>
 
@@ -391,19 +426,6 @@
           <p class="card-text">
             山本<br>
             &nbsp;
-          </p>
-        </div>
-      </div>
-
-      <div class="card mt-3 profile-card" style="display: inline-block;">
-        <img class="bd-placeholder-img card-img-top" width="100%" src="./img/kosuke.png">
-        <div class="card-body">
-          <p class="card-text">
-            Kosuke<br>
-            <a href="https://twitter.com/kosuke0330" target="_new"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;
-            <a href="https://www.facebook.com/profile.php?id=100011605114690" target="_new"><i class="fa fa-facebook-square"></i></a>&nbsp;&nbsp;
-            <a href="https://www.instagram.com/f_k0330/" target="_new"><i class="fa fa-instagram"></i></a>&nbsp;&nbsp;
-            <a href="https://yururito.gradation.jp/pgmemo/index.html" target="_new"><i class="fa fa-home"></i></a>
           </p>
         </div>
       </div>
