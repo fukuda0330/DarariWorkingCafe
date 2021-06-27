@@ -11,7 +11,6 @@ var firebaseConfig = {
 
 // firebase 初期化
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
 // DB処理格納
 let database = firebase.database();
