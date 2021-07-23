@@ -250,6 +250,20 @@ function EventDevelopmentMemberCheck() {
   developmentMember.forEach(function(memberId) {
     $('#development-member-check-' + memberId).on('change', function() {
       database.ref('DatariDevelopmentMemberCheck/' + memberId).set($(this).prop('checked'));
+
+      if ($(this).prop('checked') == true) {
+        // DarariWorkingTalkCafeのコミュニティへ開発開始を通知
+        $(function(){
+          let devlopStartMemberName = $('#development-member-name-' + memberId).text();
+          $.post('./models/Api/Slack/SlackSendMessage.php', {SendMessage: devlopStartMemberName + 'さんが開発を開始しました。'});
+        });
+      } else {
+        // DarariWorkingTalkCafeのコミュニティへ開発終了を通知
+        $(function(){
+          let devlopStartMemberName = $('#development-member-name-' + memberId).text();
+          $.post('./models/Api/Slack/SlackSendMessage.php', {SendMessage: devlopStartMemberName + 'さんが開発を終了しました。'});
+        });
+      }
     });
   });
 }
